@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__ide__executeCode",
+      "Bash(pip show:*)",
+      "Bash(pip index:*)",
+      "Bash(python -c \"import dara; print\\(dara.__file__\\)\")",
+      "Bash(pip install:*)",
+      "Bash(python -c \"import dara; print\\(dir\\(dara\\)\\)\")",
+      "Bash(python -c ':*)",
+      "Bash(python:*)",
+      "Bash(where python:*)",
+      "Bash(\"c:\\\\ProgramData\\\\anaconda3\\\\python.exe\" -c \"import numexpr; print\\(numexpr.__version__\\)\")",
+      "Bash(\"c:\\\\ProgramData\\\\anaconda3\\\\python.exe\" -c \"import sys; print\\(sys.executable\\)\")",
+      "Bash(\"c:\\\\ProgramData\\\\anaconda3\\\\python.exe\" -m pip show numexpr)",
+      "Bash(\"c:\\\\ProgramData\\\\anaconda3\\\\python.exe\" -m pip install --upgrade numexpr)",
+      "Bash(c:\\\\ProgramData\\\\anaconda3\\\\python.exe:*)",
+      "Bash(ls:*)",
+      "Bash(where bgmn:*)"
+    ]
+  }
+}
