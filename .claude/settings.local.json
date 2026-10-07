@@ -16,7 +16,30 @@
       "Bash(\"c:\\\\ProgramData\\\\anaconda3\\\\python.exe\" -m pip install --upgrade numexpr)",
       "Bash(c:\\\\ProgramData\\\\anaconda3\\\\python.exe:*)",
       "Bash(ls:*)",
-      "Bash(where bgmn:*)"
+      "Bash(where bgmn:*)",
+      "mcp__claude_ai_alphaXiv__discover_papers",
+      "mcp__claude_ai_alphaXiv__get_paper_content",
+      "Bash(conda --version)",
+      "Bash(git --version)",
+      "Read(//c//**)",
+      "Bash(git clone:*)",
+      "Bash(gfortran --version)",
+      "Bash(ifort --version)",
+      "Bash(where gfortran:*)",
+      "Bash(winget:*)",
+      "Bash(powershell -Command \"Get-Command gfortran -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source\")",
+      "Bash(powershell -Command \"where.exe gfortran\")",
+      "Bash(powershell -Command \"[System.Environment]::GetEnvironmentVariable\\('PATH','Machine'\\) -split ';'\")",
+      "Bash(powershell -Command \"[System.Environment]::GetEnvironmentVariable\\('PATH','User'\\) -split ';'\")",
+      "Bash($GFORTRAN_DIR/gfortran.exe:*)",
+      "Bash(export PATH=\"$GFORTRAN_DIR:$PATH\")",
+      "Bash(cmd.exe:*)",
+      "Bash(C:/Program Files/Python312/python.exe:*)",
+      "Bash(powershell:*)",
+      "WebFetch(domain:www.bgmn.de)",
+      "WebFetch(domain:bgmn.de)",
+      "Read(//c/Users/amitr/Downloads/**)",
+      "Bash(\"C:\\\\Users\\\\amitr\\\\AppData\\\\Roaming\\\\Python\\\\Python312\\\\site-packages\\\\dara\\\\bgmn\\\\BGMNwin\\\\BGMN.EXE\")"
     ]
   }
 }
