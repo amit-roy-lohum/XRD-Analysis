@@ -39,7 +39,8 @@
       "WebFetch(domain:www.bgmn.de)",
       "WebFetch(domain:bgmn.de)",
       "Read(//c/Users/amitr/Downloads/**)",
-      "Bash(\"C:\\\\Users\\\\amitr\\\\AppData\\\\Roaming\\\\Python\\\\Python312\\\\site-packages\\\\dara\\\\bgmn\\\\BGMNwin\\\\BGMN.EXE\")"
+      "Bash(\"C:\\\\Users\\\\amitr\\\\AppData\\\\Roaming\\\\Python\\\\Python312\\\\site-packages\\\\dara\\\\bgmn\\\\BGMNwin\\\\BGMN.EXE\")",
+      "Bash(python3:*)"
     ]
   }
 }
