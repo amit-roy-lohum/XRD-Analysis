@@ -89,12 +89,11 @@ with st.sidebar:
 
     # -- CIF source --
     st.subheader("Crystal Structure")
-    cif_source = st.radio("CIF source", ["Built-in preset", "Upload CIF"], horizontal=True)
+    cif_source = st.radio("CIF source", ["Built-in preset", "Upload CIF only"], horizontal=True)
 
     if cif_source == "Built-in preset":
         preset_name = st.selectbox("Select structure", list(PRESET_CIFS.keys()))
         cif_paths = PRESET_CIFS[preset_name]
-        uploaded_cifs = None
 
         n_phases = len(cif_paths)
         if n_phases > 1:
@@ -102,6 +101,14 @@ with st.sidebar:
 
         # -- Recommended settings toggle --
         use_recommended = st.checkbox("Use recommended settings", value=True)
+
+        # -- Optional extra phases --
+        extra_cifs = st.file_uploader(
+            "Add extra phase CIF(s) (optional)", type=["cif"], accept_multiple_files=True,
+        )
+        if extra_cifs:
+            st.caption(f"+{len(extra_cifs)} extra phase(s) will be added")
+        uploaded_cifs = extra_cifs or None
     else:
         uploaded_cifs = st.file_uploader(
             "Upload .cif file(s)", type=["cif"], accept_multiple_files=True,
@@ -231,25 +238,23 @@ if uploaded_files:
 
 # ── Load structure helper ────────────────────────────────────────────────────
 def load_structure(cif_paths, uploaded_cifs) -> rietx.Structure:
-    """Load structure from preset path(s) or uploaded file(s)."""
+    """Load structure from preset path(s) and/or uploaded file(s)."""
+    all_phases = []
     if cif_paths is not None:
-        all_phases = []
         for cp in cif_paths:
             s = rietx.Structure.from_cif(str(cp))
             all_phases.extend(s.phases)
-        return rietx.Structure(phases=all_phases)
-    elif uploaded_cifs:
-        all_phases = []
+    if uploaded_cifs:
         for uc in uploaded_cifs:
             with tempfile.NamedTemporaryFile(suffix=".cif", delete=False) as tmp:
                 tmp.write(uc.getvalue())
                 tmp.flush()
                 s = rietx.Structure.from_cif(tmp.name)
                 all_phases.extend(s.phases)
-        return rietx.Structure(phases=all_phases)
-    else:
+    if not all_phases:
         st.error("No CIF file provided.")
         st.stop()
+    return rietx.Structure(phases=all_phases)
 
 
 def apply_texture(structure: rietx.Structure, texture_model, sh_order, md_axis):
@@ -269,7 +274,7 @@ if not uploaded_files:
     st.info("Upload .xy files above to begin.")
     st.stop()
 
-if cif_source == "Upload CIF" and not uploaded_cifs:
+if cif_source == "Upload CIF only" and not uploaded_cifs:
     st.warning("Please upload one or more CIF files in the sidebar.")
     st.stop()
 
