@@ -1,7 +1,18 @@
 .cache/
 cifs/
+!preset_cifs/
 dara_downloaded_cifs/
 new_data/
 nmc_refinement/
 tutorial_data/
 all data/
+__pycache__/
+*.pyc
+.env
+with_llm/
+LAS_data/
+LTO_data/
+rietx_refinement/
+past/
+.agents/
+.playwright-mcp/
